@@ -234,13 +234,14 @@ def B_r0(r, phi, z):
 # def dBrdt(Br, Bphi, dBrdr, ddBrdr, t):
 #     return (- (2/(np.pi*h)) * R_alpha * Bphi) + ((ddBrdr + (dBrdr / r) - (Br/(r ** 2)) - (((np.pi ** 2) / (4 * (h**2))) * Br)))
 
-# # definiing the time evolution of the magnetic field Bphi
-# def dBphidt(Br, Bphi, dBphidr, ddBphidr, t):
-#     return (R_omega * Br) + ((ddBphidr + (dBphidr / r) - (Bphi/(r ** 2)) - (((np.pi ** 2) / (4 * (h**2))) * Bphi)))
-
-# definiing the time evolution of the magnetic field Br with Vz
+# definiing the time evolution of the magnetic field Br Vz
 def dBrdt_Vz(Br, Bphi, dBrdr, ddBrdr, t):
     return (- (2/(np.pi*h)) * V_z * Br) + (-(2/(np.pi*h))* R_alpha * Bphi) + ((ddBrdr + (dBrdr / r) - (Br/(r ** 2)) - (((np.pi ** 2) / (4 * (h**2))) * Br)))
+
+# definiing the time evolution of the magnetic field Bphi Vz
+def dBphidt_Vz(Br, Bphi, dBphidr, ddBphidr, t):
+    return (- (2/(np.pi*h)) * V_z * Bphi) + (R_omega * Br) + ((ddBphidr + (dBphidr / r) - (Bphi/(r ** 2)) - (((np.pi ** 2) / (4 * (h**2))) * Bphi)))
+
 
 # definiing the time evolution of the magnetic field Bphi Vz
 def dBphidt_Vz(Br, Bphi, dBphidr, ddBphidr, t):
